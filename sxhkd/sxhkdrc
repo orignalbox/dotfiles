@@ -1,0 +1,28 @@
+#
+# System Hotkeys
+#
+
+# volume
+XF86AudioRaiseVolume
+    amixer set Master 5%+
+
+XF86AudioLowerVolume
+    amixer set Master 5%-
+
+XF86AudioMute
+    amixer set Master toggle
+
+# brightness
+XF86MonBrightnessUp
+    xbacklight -inc 10
+
+XF86MonBrightnessDown
+    xbacklight -dec 10
+
+# calculator
+XF86Calculator
+    galculator
+
+# screenshot
+Print
+    gnome-screenshot -f ~/screenshots/$(date +%F_%T).png

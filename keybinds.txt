@@ -1,0 +1,54 @@
+DWM Keybindings
+(Super is the Mod key)
+---------------------------------
+
+Window Management:
+  Super + j / k           : Focus window in stack
+  Super + Shift + j / k   : Move window in stack
+  Super + h / l           : Change master/stack split ratio
+  Super + i / d           : Increase/decrease number of master windows
+  Super + Return          : Move focused window to master (zoom)
+  Super + Shift + c       : Close focused window
+  Super + b               : Toggle bar visibility
+  Super + Shift + Space   : Toggle window floating
+  Super + t               : Set tiling layout
+  Super + f               : Set floating layout
+  Super + m               : Set monocle layout
+
+Gaps Control (Super + Alt):
+  Super + Alt + u         : Increase/decrease all gaps
+  Super + Alt + Shift + u : Increase/decrease all gaps (inverted)
+  Super + Alt + i         : Increase/decrease inner gaps
+  Super + Alt + Shift + i : Increase/decrease inner gaps (inverted)
+  Super + Alt + o         : Increase/decrease outer gaps
+  Super + Alt + Shift + o : Increase/decrease outer gaps (inverted)
+  Super + Alt + 0         : Reset all gaps to default
+  Super + Alt + Shift + 0 : Toggle gaps on/off
+
+Tag Management:
+  Super + [1-9]           : View tag [1-9]
+  Super + Shift + [1-9]   : Move focused window to tag [1-9]
+  Super + 0               : View all tags
+  Super + Shift + 0       : Make focused window visible on all tags
+  
+Monitor Control:
+  Super + , / .           : Focus previous/next monitor
+  Super + Shift + , / .   : Move focused window to previous/next monitor
+
+DWM Session:
+  Super + p               : Launch dmenu (application launcher)
+  Super + Shift + Return  : Launch terminal (st)
+  Super + Shift + r       : Restart dwm in place
+  Super + Shift + q       : Quit dwm
+
+Scratchpad:
+  Super + grave           : Toggle scratchpad terminal
+
+---------------------------------
+System Hotkeys (sxhkd)
+---------------------------------
+
+  Print Screen            : Take a screenshot
+  Calculator key          : Launch galculator
+  Volume keys             : Control master volume (up, down, mute)
+  Brightness keys         : Control screen brightness (up, down)
