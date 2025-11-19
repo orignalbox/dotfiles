@@ -52,3 +52,36 @@ System Hotkeys (sxhkd)
   Calculator key          : Launch galculator
   Volume keys             : Control master volume (up, down, mute)
   Brightness keys         : Control screen brightness (up, down)
+
+---------------------------------
+Zsh Vi-Mode Keybindings
+(Enabled by 'bindkey -v' in .zshrc)
+---------------------------------
+
+Insert Mode (default):
+  Type commands normally.
+
+Normal Mode (Press Escape from Insert Mode):
+  h, j, k, l        : Move cursor left, down, up, right
+  w, b              : Move word forward, backward
+  e                 : Move to end of word
+  ^, $              : Move to beginning, end of line
+  fx                : Find character 'x' on current line
+  tx                : Move to character before 'x' on current line
+  gg, G             : Go to first, last line of history
+  /text             : Search history forward for 'text'
+  ?text             : Search history backward for 'text'
+  n, N              : Repeat last search forward, backward
+  dd                : Delete entire line
+  dw                : Delete word
+  d$, d^            : Delete to end, beginning of line
+  yy                : Yank (copy) line
+  yw                : Yank (copy) word
+  p                 : Paste after cursor
+  P                 : Paste before cursor
+  u                 : Undo last change
+  Ctrl+r            : Redo
+  v                 : Visual mode (select text)
+  i, a, I, A        : Enter insert mode (at cursor, after cursor, beginning of line, end of line)
+  R                 : Replace mode (overwrite characters)
+  .                 : Repeat last command

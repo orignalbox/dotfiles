@@ -1,0 +1,22 @@
+#!/bin/sh
+# A custom dmenu script with aliases
+
+# First, get input from the user
+# The output of dmenu is piped into the rest of the script
+dmenu_run |
+{
+    read cmd
+
+    # If the user just pressed escape, exit
+    [ -z "$cmd" ] && exit
+
+    # --- Custom Aliases ---
+    case "$cmd" in
+        # Add your aliases here, e.g.:
+        # browser) firefox ;;
+        # files) thunar ;;
+        *) # If no alias matches, run the command from path
+            (eval "$cmd" &)
+            ;;
+    esac
+}
