@@ -36,7 +36,7 @@ Monitor Control:
   Super + Shift + , / .   : Move focused window to previous/next monitor
 
 DWM Session:
-  Super + p               : Launch dmenu (application launcher)
+  Super + d               : Launch dmenu (application launcher)
   Super + Shift + Return  : Launch terminal (st)
   Super + Shift + r       : Restart dwm in place
   Super + Shift + q       : Quit dwm

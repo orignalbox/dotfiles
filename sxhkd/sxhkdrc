@@ -1,4 +1,12 @@
 #
+# main bindings
+#
+
+# program launcher
+super + d
+    /home/ogbox/dotfiles/dmenu/dmenu_run
+
+#
 # System Hotkeys
 #
 

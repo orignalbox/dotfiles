@@ -217,7 +217,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {
-	"dmenu_run",
+	"/home/ogbox/dotfiles/dmenu/dmenu_run",
 	"-m", dmenumon,
 	"-fn", dmenufont,
 	"-nb", normbgcolor,
@@ -231,7 +231,7 @@ static const char *calccmd[]  = { "galculator", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key            function                argument */
-	{ MODKEY,                       XK_p,          spawn,                  {.v = dmenucmd } },
+	/* { MODKEY,                       XK_d,          spawn,                  {.v = dmenucmd } }, */
 	{ MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = termcmd } },
 	{ 0,                            XF86XK_Calculator, spawn,              {.v = calccmd } },
 	{ MODKEY,                       XK_b,          togglebar,              {0} },
