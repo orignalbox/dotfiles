@@ -1,0 +1,27 @@
+# Terminal (st)
+super + Return
+    st
+
+# Reload herbstluftwm
+super + shift + r
+    herbstclient reload
+
+# Close focused window
+super + shift + q
+    herbstclient close
+
+# Switch to tag (workspace) 1-9
+super + {1-9}
+    herbstclient use_index {0-8}
+
+# Move window to tag 1-9
+super + shift + {1-9}
+    herbstclient move_index {0-8}
+
+# Launch dmenu
+super + d
+    ~/dotfiles/dmenu/dmenu_run
+
+# Quit herbstluftwm
+super + shift + e
+    herbstclient quit
