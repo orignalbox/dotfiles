@@ -7,13 +7,16 @@ Window Management:
   Super + Shift + j / k   : Move window in stack
   Super + h / l           : Change master/stack split ratio
   Super + i / d           : Increase/decrease number of master windows
-  Super + Return          : Move focused window to master (zoom)
-  Super + Shift + c       : Close focused window
+  Super + Shift + z       : Move focused window to master (zoom)
+  Super + Shift + q       : Close focused window
   Super + b               : Toggle bar visibility
   Super + Shift + Space   : Toggle window floating
+
+Layouts:
   Super + t               : Set tiling layout
   Super + f               : Set floating layout
   Super + m               : Set monocle layout
+  Super + Space           : Toggle to previous layout
 
 Gaps Control (Super + Alt):
   Super + Alt + u         : Increase/decrease all gaps
@@ -37,9 +40,9 @@ Monitor Control:
 
 DWM Session:
   Super + d               : Launch dmenu (application launcher)
-  Super + Shift + Return  : Launch terminal (st)
+  Super + Return          : Launch terminal (st)
   Super + Shift + r       : Restart dwm in place
-  Super + Shift + q       : Quit dwm
+  Super + Shift + e       : Quit dwm
 
 Scratchpad:
   Super + grave           : Toggle scratchpad terminal
