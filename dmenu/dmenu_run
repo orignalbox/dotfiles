@@ -1,22 +1,44 @@
 #!/bin/sh
-# A custom dmenu script with aliases
+# Custom dmenu script with theming and aliases
 
-# First, get input from the user
-# The output of dmenu is piped into the rest of the script
-dmenu_run |
-{
-    read cmd
+# Colors and font
+DMENU_FONT="monospace:size=10"
+DMENU_NB="#000000"  # Normal background
+DMENU_NF="#bbbbbb"  # Normal foreground
+DMENU_SB="#222222"  # Selected background
+DMENU_SF="#eeeeee"  # Selected foreground
 
-    # If the user just pressed escape, exit
-    [ -z "$cmd" ] && exit
+# You can add custom aliases here, one per line
+alias="browser\nfiles"
 
-    # --- Custom Aliases ---
-    case "$cmd" in
-        # Add your aliases here, e.g.:
-        # browser) firefox ;;
-        # files) thunar ;;
-        *) # If no alias matches, run the command from path
-            (eval "$cmd" &)
-            ;;
-    esac
-}
+# Get a list of executables from dmenu's cache
+executables=$(dmenu_path)
+
+# Combine aliases and executables, sort them, and remove duplicates
+all_options=$(printf "%s\n%s" "$aliases" "$executables" | sort -u)
+
+# Pipe the list to a themed dmenu and get the user's choice
+choice=$(echo "$all_options" | dmenu -p "Run:" -fn "$DMENU_FONT" -nb "$DMENU_NB" -nf "$DMENU_NF" -sb "$DMENU_SB" -sf "$DMENU_SF")
+
+# If user pressed Esc, exit
+[ -z "$choice" ] && exit
+
+# Execute based on choice (check aliases first)
+case "$choice" in
+    browser)
+        firefox &
+        ;;
+    files)
+        thunar &
+        ;;
+
+    # Add more custom aliases here, following the pattern:
+    # my-alias)
+    #     command-to-run &
+    #     ;;
+
+    *)
+        # If it's not an alias, execute it directly
+        (exec $choice) &
+        ;;
+esac
