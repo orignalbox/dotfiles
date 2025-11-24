@@ -8,8 +8,8 @@ DMENU_NF="#bbbbbb"  # Normal foreground
 DMENU_SB="#222222"  # Selected background
 DMENU_SF="#eeeeee"  # Selected foreground
 
-# You can add custom aliases here, one per line
-alias="browser\nfiles"
+# Add custom aliases here, one per line
+alias="browser\nfiles\ngithub\nwhatsapp\nlinkedin\nvtop\nyoutube"
 
 # Get a list of executables from dmenu's cache
 executables=$(dmenu_path)
@@ -26,19 +26,29 @@ choice=$(echo "$all_options" | dmenu -p "Run:" -fn "$DMENU_FONT" -nb "$DMENU_NB"
 # Execute based on choice (check aliases first)
 case "$choice" in
     browser)
-        firefox &
+        firefox & 
         ;;
     files)
-        thunar &
+        thunar & 
         ;;
-
-    # Add more custom aliases here, following the pattern:
-    # my-alias)
-    #     command-to-run &
-    #     ;;
+    github)
+        firefox https://github.com & 
+        ;;
+    whatsapp)
+        firefox https://web.whatsapp.com & 
+        ;;
+    linkedin)
+        firefox https://linkedin.com & 
+        ;;
+    vtop)
+        firefox https://vtop.vitbhopal.ac.in/vtop/open/page & 
+        ;;
+    youtube)
+        firefox https://www.youtube.com & 
+        ;;
 
     *)
         # If it's not an alias, execute it directly
-        (exec $choice) &
+        (exec $choice) & 
         ;;
 esac
