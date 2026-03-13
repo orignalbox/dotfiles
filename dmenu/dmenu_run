@@ -1,54 +1,40 @@
 #!/bin/sh
-# Custom dmenu script with theming and aliases
 
 # Colors and font
-DMENU_FONT="monospace:size=10"
-DMENU_NB="#000000"  # Normal background
-DMENU_NF="#bbbbbb"  # Normal foreground
-DMENU_SB="#222222"  # Selected background
-DMENU_SF="#eeeeee"  # Selected foreground
+DMENU_FONT="JetBrainsMono Nerd Font Mono:size=10"
+DMENU_NB="#000000"
+DMENU_NF="#bbbbbb"
+DMENU_SB="#222222"
+DMENU_SF="#eeeeee"
 
-# Add custom aliases here, one per line
-alias="browser\nfiles\ngithub\nwhatsapp\nlinkedin\nvtop\nyoutube"
+# Custom shortcuts (one per line, no \n tricks)
+aliases="browser
+files
+github
+whatsapp
+linkedin
+vtop
+youtube"
 
-# Get a list of executables from dmenu's cache
-executables=$(dmenu_path)
+# Combine with system executables, sort, deduplicate
+all_options=$(printf "%s\n%s\n" "$aliases" "$(dmenu_path)" | sort -u)
 
-# Combine aliases and executables, sort them, and remove duplicates
-all_options=$(printf "%s\n%s" "$aliases" "$executables" | sort -u)
+# Show dmenu
+choice=$(printf "%s" "$all_options" | dmenu -p "Run:" \
+    -fn "$DMENU_FONT" \
+    -nb "$DMENU_NB" -nf "$DMENU_NF" \
+    -sb "$DMENU_SB" -sf "$DMENU_SF")
 
-# Pipe the list to a themed dmenu and get the user's choice
-choice=$(echo "$all_options" | dmenu -p "Run:" -fn "$DMENU_FONT" -nb "$DMENU_NB" -nf "$DMENU_NF" -sb "$DMENU_SB" -sf "$DMENU_SF")
-
-# If user pressed Esc, exit
 [ -z "$choice" ] && exit
 
-# Execute based on choice (check aliases first)
+# Handle shortcuts, fall through to exec for everything else
 case "$choice" in
-    browser)
-        firefox & 
-        ;;
-    files)
-        thunar & 
-        ;;
-    github)
-        firefox https://github.com & 
-        ;;
-    whatsapp)
-        firefox https://web.whatsapp.com & 
-        ;;
-    linkedin)
-        firefox https://linkedin.com & 
-        ;;
-    vtop)
-        firefox https://vtop.vitbhopal.ac.in/vtop/open/page & 
-        ;;
-    youtube)
-        firefox https://www.youtube.com & 
-        ;;
-
-    *)
-        # If it's not an alias, execute it directly
-        (exec $choice) & 
-        ;;
+    browser)   exec firefox ;;
+    files)     exec thunar ;;
+    github)    exec firefox "https://github.com" ;;
+    whatsapp)  exec firefox "https://web.whatsapp.com" ;;
+    linkedin)  exec firefox "https://linkedin.com" ;;
+    vtop)      exec firefox "https://vtop.vitbhopal.ac.in/vtop/open/page" ;;
+    youtube)   exec firefox "https://www.youtube.com" ;;
+    *)         exec $choice ;;
 esac

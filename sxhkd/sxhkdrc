@@ -1,36 +1,86 @@
+#!/bin/sh
+
 #
-# main bindings
+# Launchers
 #
+
+# terminal
+super + Return
+    st
 
 # program launcher
 super + d
-    /home/ogbox/dotfiles/dmenu/dmenu_run
+    ~/dotfiles/dmenu/dmenu_run
+
+# clipboard history
+super + shift + v
+    clipmenu
+
+# file manager
+super + e
+    thunar
+
+# reload sxhkd config
+super + Escape
+    pkill -USR1 -x sxhkd
 
 #
-# System Hotkeys
+# Window management
 #
 
-# volume
+# kill focused window (handled by dwm, mirrored here)
+super + shift + q
+    xdotool getactivewindow windowkill
+
+# lock screen
+super + shift + l
+    slock
+
+#
+# System — volume
+#
+
 XF86AudioRaiseVolume
-    amixer set Master 5%+
+    pamixer -i 5
 
 XF86AudioLowerVolume
-    amixer set Master 5%-
+    pamixer -d 5
 
 XF86AudioMute
-    amixer set Master toggle
+    pamixer -t
 
-# brightness
+#
+# System — brightness
+#
+
 XF86MonBrightnessUp
     xbacklight -inc 10
 
 XF86MonBrightnessDown
     xbacklight -dec 10
 
-# calculator
+#
+# System — screenshots
+#
+
+# full screen → save to file
+Print
+    maim ~/screenshots/$(date +%F_%T).png && \
+    notify-send "Screenshot" "Saved to ~/screenshots"
+
+# selection → save to file
+super + Print
+    maim -s ~/screenshots/$(date +%F_%T).png && \
+    notify-send "Screenshot" "Saved to ~/screenshots"
+
+# selection → clipboard only
+super + shift + Print
+    maim -s | xclip -selection clipboard -t image/png && \
+    notify-send "Screenshot" "Copied to clipboard"
+
+#
+# System — misc
+#
+
 XF86Calculator
     galculator
-
-# screenshot
-Print
-    gnome-screenshot -f ~/screenshots/$(date +%F_%T).png

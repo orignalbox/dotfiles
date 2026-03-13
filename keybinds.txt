@@ -10,7 +10,8 @@ Window Management:
   Super + Shift + z       : Move focused window to master (zoom)
   Super + Shift + q       : Close focused window
   Super + b               : Toggle bar visibility
-  Super + Shift + Space   : Toggle window floating
+  Super + Shift + Space   : Toggle window floating state (tiling <-> floating)
+  Super + Right Click     : Resize floating window (drag mouse)
 
 Layouts:
   Super + t               : Set tiling layout

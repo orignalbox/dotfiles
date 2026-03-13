@@ -2154,9 +2154,7 @@ togglefloating(const Arg *arg)
 	else
 		XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
 	if (c->isfloating) {
-		int width = c->mon->mw * 0.6;
-		int height = c->mon->mh * 0.6;
-		resize(c, c->mon->mx + (c->mon->mw - width) / 2, c->mon->my + (c->mon->mh - height) / 2, width, height, 1);
+		resize(c, c->x, c->y, c->w, c->h, 0);
 	}
 	arrange(c->mon);
 
