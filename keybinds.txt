@@ -1,91 +1,192 @@
-DWM Keybindings
-(Super is the Mod key)
----------------------------------
+# ogbox@meru — keybinds & dotfiles reference
+# updated: 2026-03-14
+# wm: dwm 6.6 | terminal: st | shell: zsh | bar: dwmblocks
 
-Window Management:
-  Super + j / k           : Focus window in stack
-  Super + Shift + j / k   : Move window in stack
-  Super + h / l           : Change master/stack split ratio
-  Super + i / d           : Increase/decrease number of master windows
-  Super + Shift + z       : Move focused window to master (zoom)
-  Super + Shift + q       : Close focused window
-  Super + b               : Toggle bar visibility
-  Super + Shift + Space   : Toggle window floating state (tiling <-> floating)
-  Super + Right Click     : Resize floating window (drag mouse)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ DWM — window manager (Super = Win key)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Layouts:
-  Super + t               : Set tiling layout
-  Super + f               : Set floating layout
-  Super + m               : Set monocle layout
-  Super + Space           : Toggle to previous layout
+ Focus & Stack
+  Super + j/k          focus next/prev window
+  Super + Shift + j/k  move window up/down in stack
+  Super + h/l          resize master area (shrink/grow)
+  Super + i            increase number of master windows
+  Super + d            decrease number of master windows
+  Super + Return       spawn terminal (st)
+  Super + Shift + z    zoom (swap focused with master)
 
-Gaps Control (Super + Alt):
-  Super + Alt + u         : Increase/decrease all gaps
-  Super + Alt + Shift + u : Increase/decrease all gaps (inverted)
-  Super + Alt + i         : Increase/decrease inner gaps
-  Super + Alt + Shift + i : Increase/decrease inner gaps (inverted)
-  Super + Alt + o         : Increase/decrease outer gaps
-  Super + Alt + Shift + o : Increase/decrease outer gaps (inverted)
-  Super + Alt + 0         : Reset all gaps to default
-  Super + Alt + Shift + 0 : Toggle gaps on/off
+ Layouts
+  Super + t            tile layout (default)
+  Super + f            floating layout
+  Super + m            monocle layout (fullscreen stack)
+  Super + Space        toggle between last two layouts
+  Super + Shift + Space toggle floating for focused window
 
-Tag Management:
-  Super + [1-9]           : View tag [1-9]
-  Super + Shift + [1-9]   : Move focused window to tag [1-9]
-  Super + 0               : View all tags
-  Super + Shift + 0       : Make focused window visible on all tags
-  
-Monitor Control:
-  Super + , / .           : Focus previous/next monitor
-  Super + Shift + , / .   : Move focused window to previous/next monitor
+ Tags (workspaces)
+  Super + 1-9          view tag
+  Super + Shift + 1-9  move window to tag
+  Super + Ctrl + 1-9   toggle tag view
+  Super + 0            view all tags
+  Super + Tab          toggle last tag
 
-DWM Session:
-  Super + d               : Launch dmenu (application launcher)
-  Super + Return          : Launch terminal (st)
-  Super + Shift + r       : Restart dwm in place
-  Super + Shift + e       : Quit dwm
+ Gaps (vanitygaps)
+  Super + Alt + u      increase all gaps
+  Super + Alt + Shift + u  decrease all gaps
+  Super + Alt + 0      toggle gaps on/off
+  Super + Alt + Shift + 0  reset gaps to default
 
-Scratchpad:
-  Super + grave           : Toggle scratchpad terminal
+ Scratchpad
+  Super + `            toggle scratchpad terminal
+  Super + Ctrl + `     assign window to scratchpad
+  Super + Shift + `    remove scratchpad
 
----------------------------------
-System Hotkeys (sxhkd)
----------------------------------
+ Multi-monitor
+  Super + ,/.          focus prev/next monitor
+  Super + Shift + ,/.  move window to prev/next monitor
 
-  Print Screen            : Take a screenshot
-  Calculator key          : Launch galculator
-  Volume keys             : Control master volume (up, down, mute)
-  Brightness keys         : Control screen brightness (up, down)
+ Bar
+  Super + b            toggle bar visibility
 
----------------------------------
-Zsh Vi-Mode Keybindings
-(Enabled by 'bindkey -v' in .zshrc)
----------------------------------
+ System
+  Super + Shift + c    kill focused window
+  Super + Shift + q    kill focused window (also in sxhkd)
+  Super + Shift + r    restart dwm (selfrestart patch)
 
-Insert Mode (default):
-  Type commands normally.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ SXHKD — hotkey daemon
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Normal Mode (Press Escape from Insert Mode):
-  h, j, k, l        : Move cursor left, down, up, right
-  w, b              : Move word forward, backward
-  e                 : Move to end of word
-  ^, $              : Move to beginning, end of line
-  fx                : Find character 'x' on current line
-  tx                : Move to character before 'x' on current line
-  gg, G             : Go to first, last line of history
-  /text             : Search history forward for 'text'
-  ?text             : Search history backward for 'text'
-  n, N              : Repeat last search forward, backward
-  dd                : Delete entire line
-  dw                : Delete word
-  d$, d^            : Delete to end, beginning of line
-  yy                : Yank (copy) line
-  yw                : Yank (copy) word
-  p                 : Paste after cursor
-  P                 : Paste before cursor
-  u                 : Undo last change
-  Ctrl+r            : Redo
-  v                 : Visual mode (select text)
-  i, a, I, A        : Enter insert mode (at cursor, after cursor, beginning of line, end of line)
-  R                 : Replace mode (overwrite characters)
-  .                 : Repeat last command
+ Launchers
+  Super + Return       terminal (st)
+  Super + d            dmenu launcher
+  Super + Shift + v    clipboard history (clipmenu)
+  Super + e            file manager (thunar)
+  Super + Escape       reload sxhkd config
+
+ Screenshots
+  Print                full screen → ~/screenshots/
+  Super + Print        selection → ~/screenshots/
+  Super + Shift + Print  selection → clipboard only
+
+ Volume
+  XF86AudioRaiseVolume  volume +5% (pamixer)
+  XF86AudioLowerVolume  volume -5% (pamixer)
+  XF86AudioMute         toggle mute
+
+ Brightness
+  XF86MonBrightnessUp    brightness +10%
+  XF86MonBrightnessDown  brightness -10%
+
+ System
+  XF86Calculator       galculator
+  Super + Shift + l    lock screen (slock)
+  Super + Shift + q    kill focused window
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ST — terminal shortcuts
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ Clipboard
+  Ctrl + Shift + C     copy to clipboard
+  Ctrl + Shift + V     paste from clipboard
+  Shift + Insert       paste from primary selection
+
+ Scrollback
+  Shift + PageUp       scroll up
+  Shift + PageDown     scroll down
+  Shift + MouseWheel   scroll up/down
+
+ Font size
+  Ctrl + Shift + PgUp  zoom in
+  Ctrl + Shift + PgDn  zoom out
+  Ctrl + Shift + Home  reset zoom
+
+ Opacity
+  Ctrl + Shift + O     increase opacity
+  Ctrl + Shift + P     decrease opacity
+
+ URL copy
+  Alt + l              cycle through URLs on screen → copy to clipboard
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ZSH — shell aliases
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ Navigation
+  ..      cd ..
+  ...     cd ../..
+  ....    cd ../../..
+
+ Files
+  ls      ls --color=auto
+  ll      ls -lh (long format)
+  la      ls -lah (show hidden)
+  v       vim
+  c       clear
+  q       exit
+
+ Pacman
+  update  sudo pacman -Syu
+  install sudo pacman -S
+  remove  sudo pacman -Rns
+  search  pacman -Ss
+
+ Dotfiles
+  zshrc     edit & reload zshrc
+  sxhkdrc   edit & reload sxhkd
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ DWMBLOCKS — status bar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ Modules (left to right):
+  wifi     active connection name via nmcli (updates every 5s)
+  battery  percentage from /sys/class/power_supply/ (updates every 5s)
+           → sends critical notify-send at ≤15%
+  date     Sat, Mar 14  |  12:28 AM (updates every 5s)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ DOTFILES STRUCTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ ~/dotfiles/
+  dmenu/          dmenu_run script with custom shortcuts
+  dunst/          notification daemon config
+  dwm-build/      active dwm build (config.h, patches in patch/)
+  dwmblocks/      status bar (blocks.h)
+  picom/          compositor config (glx, vsync, shadows, fast fade)
+  scripts/        battery.sh, brightness.sh, bluetooth.sh
+  st/             st-flexipatch terminal
+  sxhkd/          keybinding daemon config
+  wal/            wallpaper image
+  zsh/            .zshrc (symlinked to ~/.zshrc)
+
+ ~/.xinitrc        X session startup
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ ST PATCHES ENABLED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ALPHA_PATCH                  background transparency (0.85)
+  ALPHA_FOCUS_HIGHLIGHT_PATCH  unfocused windows dim to 0.79
+  ANYSIZE_PATCH                no pixel gaps when tiling
+  BOXDRAW_PATCH                perfect box/line drawing chars
+  COPYURL_PATCH                Alt+l to copy URLs from screen
+  LIGATURES_PATCH              JetBrainsMono ligatures render
+  SCROLLBACK_PATCH             Shift+PgUp/Dn to scroll
+  SCROLLBACK_MOUSE_PATCH       Shift+wheel to scroll
+  UNDERCURL_PATCH              wavy underlines for nvim LSP
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ DWM PATCHES ENABLED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  vanitygaps      configurable gaps between windows
+  pertag          each tag remembers its own layout
+  scratchpad      dropdown terminal on Super+`
+  movestack       move windows up/down in stack
+  selfrestart     restart dwm without logging out
+  bar_alpha       transparent bar
+  bar_systray     system tray in bar
+  bar_indicators  tag/float indicators
+  attachx         attach new windows after master
